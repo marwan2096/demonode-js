@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <form >
+        <div class="topnav">
+            <a class="active" href="home">home</a>
+            <a href="allcontacts">Allcontacts</a>
+            <a href="addcontact"> AddContact</a>
+            <input type="text" name="q" value="<%=q %>" /><input type="submit" value="search"></br>
+          </div>
+      
+    </form>
+    <table style="text-align: center";>
+        <tr>
+            <th style="text-align: center;">Id</th>
+            <th>Name</th>
+            <th>author</th>
+            <th>Action</th>
+        </tr>
+        <% for (let contact of fcontacts) { %>
+        <tr>
+            <td ><%= contact.Id %></td>
+            <td><%= contact.Name %></td>
+            <td><%= contact.author%></td>
+            <td>
+                <a href="/updatecontact?Id=<%= contact.Id %>" >update</a> 
+                <a href="/deletecontact?Id=<%= contact.Id %>" >Delete</a>
+            </td>
+            
+        </tr>
+        <% } %>
+    </table>
+    
+    
+</body>
+</html>
